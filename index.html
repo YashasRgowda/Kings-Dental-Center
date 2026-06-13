@@ -1,0 +1,2766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kings Dental Center — Umm Salal Mohammed, Qatar</title>
+<meta name="description" content="Kings Dental Center — Qatar's favourite dental care provider since 2016. General dentistry, cosmetic treatments, orthodontics, implants & more. 12 branches across Qatar, UAE & India." />
+
+<!-- Fonts: Fraunces (display serif) + Inter (UI) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   TOKENS
+   ========================================================================== */
+:root {
+  --ivory: #FAF7F2;
+  --cream: #F1ECE2;
+  --paper: #F6F2EA;
+  --ink: #1C1917;
+  --ink-soft: #2B2724;
+  --muted: #78706A;
+  --hairline: #E5DFD3;
+  --caramel: #B8895C;
+  --caramel-deep: #8F6840;
+  --gold: #C9A973;
+  --white: #FFFFFF;
+
+  --serif: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --max: 1320px;
+  --gutter: clamp(20px, 4vw, 56px);
+}
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+::selection { background: var(--caramel); color: var(--ivory); }
+
+/* ==========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================== */
+.eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--caramel-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 28px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--caramel);
+}
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; margin: 0; color: var(--ink); }
+.display {
+  font-size: clamp(40px, 6.5vw, 92px);
+  line-height: 0.98;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+}
+.display em { font-style: italic; font-weight: 300; color: var(--caramel-deep); }
+
+h2.section-title {
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.04;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  max-width: 18ch;
+}
+h2.section-title em { font-style: italic; color: var(--caramel-deep); }
+
+.lede {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  letter-spacing: -0.005em;
+}
+
+p { margin: 0 0 1em; }
+.muted { color: var(--muted); }
+
+/* ==========================================================================
+   SCROLL PROGRESS
+   ========================================================================== */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--caramel), var(--gold));
+  box-shadow: 0 0 10px rgba(201, 169, 115, 0.45);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 24px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.5s var(--ease), backdrop-filter 0.5s var(--ease), padding 0.5s var(--ease), border-color 0.5s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(250, 247, 242, 0.82);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom-color: var(--hairline);
+}
+
+.brand {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.brand em { font-style: italic; font-weight: 300; color: var(--caramel-deep); }
+
+.nav-links {
+  display: flex;
+  gap: 38px;
+  list-style: none;
+  margin: 0; padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.nav-links a {
+  position: relative;
+  color: var(--ink-soft);
+  transition: color 0.3s var(--ease);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--caramel);
+  transition: width 0.4s var(--ease);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 11px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  background: transparent;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.nav-cta:hover { background: var(--ink); color: var(--ivory); }
+
+@media (max-width: 820px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+}
+
+/* ==========================================================================
+   NAV TOGGLE + MOBILE MENU
+   ========================================================================== */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 60;
+  position: relative;
+  background: transparent;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+  transform-origin: center;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(3.25px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--ivory);
+  z-index: 45;
+  padding: 110px var(--gutter) 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+  overflow-y: auto;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mobile-menu li {
+  overflow: hidden;
+  border-bottom: 1px solid var(--hairline);
+}
+.mobile-menu a {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(30px, 8vw, 44px);
+  color: var(--ink);
+  display: block;
+  padding: 22px 0;
+  letter-spacing: -0.02em;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.6s var(--ease), opacity 0.6s var(--ease), color 0.3s var(--ease);
+}
+.mobile-menu.open a { transform: translateY(0); opacity: 1; }
+.mobile-menu.open li:nth-child(1) a { transition-delay: 0.08s; }
+.mobile-menu.open li:nth-child(2) a { transition-delay: 0.14s; }
+.mobile-menu.open li:nth-child(3) a { transition-delay: 0.20s; }
+.mobile-menu.open li:nth-child(4) a { transition-delay: 0.26s; }
+.mobile-menu.open li:nth-child(5) a { transition-delay: 0.32s; }
+.mobile-menu a:active { color: var(--caramel-deep); }
+
+.mobile-menu-foot {
+  border-top: 1px solid var(--hairline);
+  padding-top: 28px;
+  margin-top: 36px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease) 0.36s, transform 0.6s var(--ease) 0.36s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile-menu.open .mobile-menu-foot { opacity: 1; transform: translateY(0); }
+.mobile-menu-foot .m-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--caramel-deep);
+  margin-bottom: 4px;
+}
+.mobile-menu-foot .m-phone {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.mobile-menu-foot .m-wa {
+  font-size: 14px;
+  color: var(--caramel-deep);
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 820px) {
+  .nav-toggle { display: inline-flex; }
+  body.menu-open { overflow: hidden; }
+}
+
+/* ==========================================================================
+   FOCUS
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--caramel);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px var(--gutter) 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.hero-text { position: relative; z-index: 2; }
+.hero h1 { margin-bottom: 36px; }
+.hero .lede { max-width: 36ch; margin-bottom: 44px; }
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 48px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: transform 0.4s var(--ease), background 0.4s var(--ease), color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  border: 1px solid transparent;
+}
+.btn-primary { background: var(--ink); color: var(--ivory); }
+.btn-primary:hover { background: var(--caramel-deep); transform: translateY(-2px); box-shadow: 0 18px 40px -18px rgba(143, 104, 64, 0.55); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: transparent;
+  padding-left: 14px; padding-right: 14px;
+}
+.btn-ghost .arrow { transition: transform 0.4s var(--ease); display: inline-block; }
+.btn-ghost:hover .arrow { transform: translateX(6px); }
+
+.hero-figure {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 60px 100px -40px rgba(28, 25, 23, 0.35);
+  transform: translateY(0);
+  will-change: transform;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(201, 169, 115, 0.3), transparent 55%),
+    radial-gradient(ellipse at 70% 60%, rgba(184, 137, 92, 0.25), transparent 50%),
+    linear-gradient(150deg, #EDE3D2 0%, #D4C4A8 40%, #B8A080 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-figure .placeholder-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(28, 25, 23, 0.4);
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-meta {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero-meta .line { width: 60px; height: 1px; background: var(--hairline); }
+
+.scroll-hint {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scroll-hint .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--caramel);
+  animation: pulse 2.4s var(--ease-soft) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 120px;
+    padding-bottom: 72px;
+    min-height: auto;
+    gap: 44px;
+  }
+  .hero-figure { order: -1; }
+  .scroll-hint { display: none; }
+  .hero-meta { position: static; margin-top: 28px; }
+}
+@media (max-width: 700px) {
+  .hero-figure { aspect-ratio: 4 / 3; }
+}
+
+/* ==========================================================================
+   SECTION BASICS
+   ========================================================================== */
+section { padding: clamp(80px, 12vw, 160px) var(--gutter); position: relative; }
+.wrap { max-width: var(--max); margin: 0 auto; }
+.divider { height: 1px; background: var(--hairline); max-width: var(--max); margin: 0 auto; }
+
+/* ==========================================================================
+   STATS BAR — floating impact numbers
+   ========================================================================== */
+.stats-bar {
+  background: var(--ink);
+  padding: clamp(48px, 8vw, 80px) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 50%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 169, 115, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  text-align: center;
+}
+.stat-block {}
+.stat-block .big {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(42px, 6vw, 72px);
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+  display: block;
+}
+.stat-block .label {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+@media (max-width: 700px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+}
+
+/* ==========================================================================
+   THE WORK — spotlight coverflow carousel
+   ========================================================================== */
+.work { background: var(--ivory); padding: clamp(80px, 12vw, 160px) var(--gutter); overflow: hidden; }
+.work-head {
+  max-width: min(var(--max), 880px);
+  margin: 0 auto;
+  margin-bottom: clamp(48px, 7vw, 80px);
+}
+
+.carousel-wrap {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+/* Edge fade masks */
+.carousel-wrap::before,
+.carousel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: clamp(60px, 12vw, 180px);
+  z-index: 4;
+  pointer-events: none;
+}
+.carousel-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--ivory) 0%, transparent 100%);
+}
+.carousel-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--ivory) 0%, transparent 100%);
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  height: clamp(280px, 38vw, 400px);
+}
+
+.case {
+  position: absolute;
+  width: clamp(180px, 22vw, 260px);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  cursor: pointer;
+  transition: transform 0.7s var(--ease-luxe), opacity 0.7s var(--ease-luxe), filter 0.7s var(--ease-luxe), box-shadow 0.7s var(--ease-luxe);
+  will-change: transform, opacity, filter;
+  user-select: none;
+}
+
+/* Active center card */
+.case[data-pos="0"] {
+  transform: translateX(-50%) scale(1);
+  left: 50%;
+  opacity: 1;
+  filter: blur(0);
+  z-index: 3;
+  box-shadow: 0 30px 70px -20px rgba(143, 104, 64, 0.35);
+}
+
+/* ±1 adjacent */
+.case[data-pos="-1"] {
+  transform: translateX(-50%) scale(0.82) rotateY(6deg);
+  left: 22%;
+  opacity: 0.5;
+  filter: blur(1.5px);
+  z-index: 2;
+}
+.case[data-pos="1"] {
+  transform: translateX(-50%) scale(0.82) rotateY(-6deg);
+  left: 78%;
+  opacity: 0.5;
+  filter: blur(1.5px);
+  z-index: 2;
+}
+
+/* ±2 outer */
+.case[data-pos="-2"] {
+  transform: translateX(-50%) scale(0.66) rotateY(10deg);
+  left: 6%;
+  opacity: 0.2;
+  filter: blur(3px);
+  z-index: 1;
+}
+.case[data-pos="2"] {
+  transform: translateX(-50%) scale(0.66) rotateY(-10deg);
+  left: 94%;
+  opacity: 0.2;
+  filter: blur(3px);
+  z-index: 1;
+}
+
+/* Hidden cards */
+.case[data-pos="hidden"] {
+  transform: translateX(-50%) scale(0.5);
+  left: 50%;
+  opacity: 0;
+  filter: blur(6px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.case-img {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(201, 169, 115, 0.15), transparent 55%),
+    radial-gradient(ellipse at 70% 60%, rgba(184, 137, 92, 0.12), transparent 50%),
+    linear-gradient(160deg, #F6F2EA 0%, #EDE3D2 40%, #E2D5C0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.case-img .case-icon {
+  font-size: 36px;
+  opacity: 0.15;
+}
+
+.case-body {
+  padding: clamp(14px, 1.8vw, 22px);
+}
+.case-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 12px;
+  color: var(--caramel-deep);
+  display: block;
+  margin-bottom: 4px;
+}
+.case h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(14px, 1.3vw, 18px);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* Carousel navigation */
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 5;
+}
+.c-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  background: var(--white);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.c-arrow:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ivory);
+  transform: scale(1.08);
+}
+.c-arrow:active { transform: scale(0.94); transition: transform 0.1s ease; }
+.c-arrow svg { width: 16px; height: 16px; display: block; }
+
+.c-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.c-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--hairline);
+  transition: background 0.4s var(--ease), transform 0.4s var(--ease);
+  padding: 0;
+}
+.c-dot.active {
+  background: var(--caramel);
+  transform: scale(1.35);
+}
+
+/* Carousel entrance */
+.carousel-wrap {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+.carousel-wrap.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  .carousel-track { height: 300px; }
+  .case { width: clamp(160px, 45vw, 200px); }
+  .case[data-pos="-2"],
+  .case[data-pos="2"] { opacity: 0; pointer-events: none; }
+  .case[data-pos="-1"] { left: 14%; }
+  .case[data-pos="1"] { left: 86%; }
+  .carousel-wrap::before,
+  .carousel-wrap::after { width: 40px; }
+}
+@media (max-width: 480px) {
+  .case { width: 170px; }
+  .case[data-pos="-1"] { left: 8%; opacity: 0.35; }
+  .case[data-pos="1"] { left: 92%; opacity: 0.35; }
+}
+
+/* ==========================================================================
+   SERVICES
+   ========================================================================== */
+.services { background: var(--paper); }
+.services .head { max-width: 720px; margin-bottom: clamp(48px, 8vw, 88px); }
+
+.svc-list { border-top: 1px solid var(--hairline); }
+.svc-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--hairline);
+  cursor: pointer;
+  position: relative;
+  transition: padding 0.5s var(--ease);
+}
+.svc-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(184, 137, 92, 0.04), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.svc-row:hover::before { opacity: 1; }
+.svc-row:hover { padding-left: 16px; }
+.svc-row:hover .svc-name { color: var(--caramel-deep); }
+.svc-row:hover .svc-arrow { transform: translateX(8px); color: var(--caramel-deep); }
+
+.svc-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--muted);
+}
+.svc-name {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(26px, 3vw, 40px);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  transition: color 0.4s var(--ease);
+}
+.svc-desc {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 36ch;
+  text-align: right;
+  line-height: 1.55;
+}
+.svc-arrow {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--muted);
+  margin-left: 16px;
+  transition: transform 0.4s var(--ease), color 0.4s var(--ease);
+  display: inline-block;
+}
+
+@media (max-width: 820px) {
+  .svc-row {
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    padding: 24px 0;
+  }
+  .svc-desc { display: none; }
+  .svc-arrow { display: none; }
+}
+
+/* ==========================================================================
+   WHY CHOOSE US — premium promise section
+   ========================================================================== */
+.why { background: var(--ivory); }
+.why .head { max-width: 720px; margin-bottom: clamp(48px, 8vw, 88px); }
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+}
+.promise-card {
+  padding: clamp(28px, 4vw, 44px);
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.promise-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -30px rgba(143, 104, 64, 0.2);
+  border-color: rgba(184, 137, 92, 0.3);
+}
+.promise-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--caramel-deep);
+  transition: background 0.5s var(--ease), color 0.5s var(--ease);
+}
+.promise-card:hover .promise-icon { background: var(--caramel); color: var(--ivory); }
+.promise-icon svg { width: 24px; height: 24px; }
+.promise-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 24px);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.promise-card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 820px) {
+  .promise-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   THE VISIT — 3 steps
+   ========================================================================== */
+.visit { background: var(--ivory); }
+.visit .head { max-width: 720px; margin-bottom: clamp(48px, 8vw, 88px); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  border-top: 1px solid var(--hairline);
+  padding-top: clamp(40px, 6vw, 64px);
+}
+.step .roman {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(54px, 7vw, 96px);
+  color: var(--caramel);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  display: block;
+}
+.step h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 2vw, 28px);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.step p { font-size: 15px; color: var(--muted); line-height: 1.65; max-width: 32ch; }
+
+@media (max-width: 820px) {
+  .steps { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ==========================================================================
+   TEAM — editorial spotlight with interactive doctor switcher
+   ========================================================================== */
+.team {
+  background: var(--ink);
+  color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+}
+/* Ambient glow */
+.team::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -15%;
+  width: 60%;
+  height: 100%;
+  background: radial-gradient(ellipse, rgba(201, 169, 115, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.team .head { max-width: 720px; margin-bottom: clamp(56px, 9vw, 100px); }
+.team .eyebrow { color: var(--gold); }
+.team .eyebrow::before { background: var(--gold); }
+.team h2.section-title { color: var(--ivory); }
+.team h2.section-title em { color: var(--gold); }
+
+/* --- Spotlight layout --- */
+.doc-spotlight {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(48px, 7vw, 100px);
+  align-items: center;
+  position: relative;
+}
+
+/* Portrait with rotating ring */
+.doc-portrait-wrap {
+  position: relative;
+  width: clamp(240px, 28vw, 360px);
+  height: clamp(240px, 28vw, 360px);
+}
+.doc-ring {
+  position: absolute;
+  inset: -12px;
+  border: 1px solid rgba(201, 169, 115, 0.25);
+  border-radius: 50%;
+  animation: ring-orbit 25s linear infinite;
+}
+.doc-ring::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(201, 169, 115, 0.6);
+}
+.doc-ring-2 {
+  position: absolute;
+  inset: -28px;
+  border: 1px solid rgba(201, 169, 115, 0.1);
+  border-radius: 50%;
+  animation: ring-orbit 40s linear infinite reverse;
+}
+@keyframes ring-orbit { to { transform: rotate(360deg); } }
+
+.doc-portrait {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 35% 30%, rgba(201, 169, 115, 0.3), transparent 55%),
+    radial-gradient(ellipse at 65% 70%, rgba(184, 137, 92, 0.35), transparent 50%),
+    linear-gradient(150deg, #3D3530 0%, #2B2420 40%, #1C1917 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.5);
+}
+.doc-portrait .doc-monogram {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 6vw, 72px);
+  color: rgba(201, 169, 115, 0.15);
+  letter-spacing: 0.05em;
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+/* --- Doctor detail text (right side) --- */
+.doc-detail {
+  position: relative;
+}
+.doc-detail-inner {
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.doc-detail-inner.switching {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.doc-number {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(64px, 9vw, 110px);
+  color: rgba(201, 169, 115, 0.08);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  position: absolute;
+  top: -20px;
+  right: 0;
+  pointer-events: none;
+  transition: opacity 0.6s var(--ease);
+}
+
+.doc-detail h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  color: var(--ivory);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+.doc-specialty {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: var(--gold);
+  margin-bottom: 28px;
+  display: block;
+}
+.doc-specialty::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 20px;
+  opacity: 0.4;
+}
+.doc-bio {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 32px;
+}
+.doc-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.8);
+  border-left: 1px solid var(--gold);
+  padding-left: 22px;
+  max-width: 40ch;
+}
+
+/* --- Doctor switcher tabs --- */
+.doc-tabs {
+  display: flex;
+  gap: 0;
+  margin-top: clamp(48px, 7vw, 80px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.doc-tab {
+  flex: 1;
+  padding: clamp(20px, 3vw, 32px) clamp(16px, 2vw, 28px);
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s var(--ease);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+.doc-tab:last-child { border-right: none; }
+.doc-tab:hover { background: rgba(255, 255, 255, 0.03); }
+
+/* Active indicator line */
+.doc-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-luxe);
+}
+.doc-tab.active::before { transform: scaleX(1); }
+
+.doc-tab .tab-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(201, 169, 115, 0.4);
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.4s var(--ease);
+}
+.doc-tab.active .tab-num { color: var(--gold); }
+.doc-tab .tab-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: -0.01em;
+  display: block;
+  margin-bottom: 4px;
+  transition: color 0.4s var(--ease);
+}
+.doc-tab.active .tab-name { color: var(--ivory); }
+.doc-tab .tab-role {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.4s var(--ease);
+}
+.doc-tab.active .tab-role { color: rgba(201, 169, 115, 0.6); }
+
+/* Spotlight entrance */
+.doc-spotlight {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(6px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease);
+}
+.doc-spotlight.in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.doc-tabs {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s var(--ease) 0.3s, transform 1s var(--ease) 0.3s;
+}
+.doc-tabs.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 820px) {
+  .doc-spotlight {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .doc-portrait-wrap {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+  .doc-detail h3 { font-size: 32px; }
+  .doc-bio { max-width: none; }
+  .doc-quote { max-width: none; }
+  .doc-number { display: none; }
+  .doc-specialty::after { margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 600px) {
+  .doc-tabs { flex-direction: column; }
+  .doc-tab { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+  .doc-tab:last-child { border-bottom: none; }
+  .doc-tab::before { top: auto; bottom: 0; }
+  .doc-portrait-wrap { width: 180px; height: 180px; }
+}
+
+/* ==========================================================================
+   BRANCHES — clean grid with featured card
+   ========================================================================== */
+.branches {
+  background: var(--paper);
+  padding: clamp(80px, 12vw, 140px) var(--gutter);
+}
+.branches .wrap { max-width: var(--max); margin: 0 auto; }
+.branches .head { max-width: 720px; margin-bottom: clamp(40px, 6vw, 72px); }
+
+.branch-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: clamp(16px, 2vw, 24px);
+}
+.branch-card {
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.branch-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 137, 92, 0.3);
+  box-shadow: 0 20px 40px -20px rgba(143, 104, 64, 0.15);
+}
+.branch-card.featured {
+  grid-row: 1 / 3;
+  border-color: var(--caramel);
+  background: linear-gradient(170deg, var(--white) 0%, rgba(201, 169, 115, 0.08) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.branch-card.featured::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border: 1px solid rgba(184, 137, 92, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.branch-card .branch-flag {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--caramel-deep);
+  background: rgba(184, 137, 92, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+.branch-card h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.4vw, 22px);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.branch-card.featured h4 {
+  font-size: clamp(24px, 2.2vw, 32px);
+}
+.branch-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.branch-active-tag {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--caramel-deep);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.branch-active-tag .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4CAF50;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Stagger */
+.branch-card {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(5px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.branch-grid.in .branch-card { opacity: 1; transform: translateY(0); filter: blur(0); }
+.branch-grid.in .branch-card:nth-child(1) { transition-delay: 0.05s; }
+.branch-grid.in .branch-card:nth-child(2) { transition-delay: 0.12s; }
+.branch-grid.in .branch-card:nth-child(3) { transition-delay: 0.19s; }
+.branch-grid.in .branch-card:nth-child(4) { transition-delay: 0.26s; }
+.branch-grid.in .branch-card:nth-child(5) { transition-delay: 0.33s; }
+
+@media (max-width: 820px) {
+  .branch-grid { grid-template-columns: 1fr 1fr; }
+  .branch-card.featured { grid-row: auto; grid-column: 1 / -1; }
+}
+@media (max-width: 550px) {
+  .branch-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   VOICES (testimonials)
+   ========================================================================== */
+.voices { background: var(--ink); color: var(--ivory); }
+.voices .eyebrow { color: var(--gold); }
+.voices .eyebrow::before { background: var(--gold); }
+.voices h2 { color: var(--ivory); }
+
+.quote-stage {
+  margin-top: 64px;
+  position: relative;
+}
+.quote {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(26px, 3.2vw, 44px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  max-width: 42ch;
+  margin: 0 0 36px;
+  transition: opacity 0.6s var(--ease);
+}
+.quote-attr {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.quote-attr .who { color: var(--ivory); font-weight: 500; margin-right: 12px; }
+
+.quote-nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-top: 56px;
+}
+.q-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 115, 0.32);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: transparent;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.q-arrow:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+.q-arrow svg { width: 16px; height: 16px; display: block; }
+.quote-pips {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.quote-pips button {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.quote-pips .pip {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.quote-pips button[aria-current="true"] .pip { background: var(--gold); transform: scale(1.3); }
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.contact { background: var(--ivory); }
+.contact .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.contact-info dt {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--caramel-deep);
+  margin-bottom: 6px;
+  margin-top: 28px;
+}
+.contact-info dt:first-of-type { margin-top: 0; }
+.contact-info dd { margin: 0; font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
+
+.reach {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.reach-card {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 26px;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  color: var(--ink);
+  transition: transform 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.reach-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(184, 137, 92, 0.4);
+  box-shadow: 0 24px 50px -30px rgba(143, 104, 64, 0.35);
+}
+.reach-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--caramel-deep);
+  transition: background 0.45s var(--ease), color 0.45s var(--ease);
+}
+.reach-card:hover .reach-icon { background: var(--caramel); color: var(--ivory); }
+.reach-icon svg { width: 20px; height: 20px; display: block; }
+.reach-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.reach-label {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 19px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.reach-meta {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.reach-arrow {
+  font-family: var(--serif);
+  color: var(--muted);
+  font-size: 18px;
+  transition: transform 0.4s var(--ease), color 0.4s var(--ease);
+}
+.reach-card:hover .reach-arrow {
+  transform: translateX(6px);
+  color: var(--caramel-deep);
+}
+
+/* ==========================================================================
+   CONTACT — premium split with map
+   ========================================================================== */
+.contact { background: var(--ivory); }
+.contact .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+}
+.contact h2 { margin-bottom: 32px; }
+
+.contact-left {}
+
+.contact-info dt {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--caramel-deep);
+  margin-bottom: 6px;
+  margin-top: 28px;
+}
+.contact-info dt:first-of-type { margin-top: 0; }
+.contact-info dd { margin: 0; font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
+
+/* Map placeholder */
+.map-embed {
+  margin-top: 36px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(184, 137, 92, 0.06), transparent 70%),
+    var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.4s var(--ease);
+}
+.map-embed:hover { border-color: rgba(184, 137, 92, 0.3); }
+.map-embed iframe { width: 100%; height: 100%; border: 0; }
+.map-embed .map-placeholder-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.reach {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.reach-card {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  color: var(--ink);
+  transition: transform 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.reach-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(184, 137, 92, 0.4);
+  box-shadow: 0 24px 50px -30px rgba(143, 104, 64, 0.35);
+}
+.reach-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--caramel-deep);
+  transition: background 0.45s var(--ease), color 0.45s var(--ease);
+}
+.reach-card:hover .reach-icon { background: var(--caramel); color: var(--ivory); }
+.reach-icon svg { width: 18px; height: 18px; display: block; }
+.reach-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.reach-label {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.reach-meta {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.reach-arrow {
+  font-family: var(--serif);
+  color: var(--muted);
+  font-size: 16px;
+  transition: transform 0.4s var(--ease), color 0.4s var(--ease);
+}
+.reach-card:hover .reach-arrow {
+  transform: translateX(6px);
+  color: var(--caramel-deep);
+}
+
+/* ==========================================================================
+   RESPONSIVE — iPad (768–1024) & Mobile (<768)
+   ========================================================================== */
+
+/* --- iPad landscape & portrait --- */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; padding-top: 120px; min-height: auto; gap: 44px; }
+  .hero-figure { order: -1; }
+  .scroll-hint { display: none; }
+  .hero-meta { position: static; margin-top: 28px; }
+  .doc-spotlight { gap: 48px; }
+}
+
+@media (max-width: 820px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-toggle { display: inline-flex; }
+  body.menu-open { overflow: hidden; }
+
+  .contact .wrap { grid-template-columns: 1fr; }
+  .promise-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 48px; }
+  .svc-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 24px 0; }
+  .svc-desc { display: none; }
+  .svc-arrow { display: none; }
+
+  .doc-spotlight { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .doc-portrait-wrap { width: 220px; height: 220px; margin: 0 auto; }
+  .doc-detail h3 { font-size: 32px; }
+  .doc-bio { max-width: none; }
+  .doc-quote { max-width: none; text-align: left; }
+  .doc-number { display: none; }
+  .doc-specialty::after { margin-left: auto; margin-right: auto; }
+
+  .branch-grid { grid-template-columns: 1fr 1fr; }
+  .branch-card.featured { grid-row: auto; grid-column: 1 / -1; }
+}
+
+/* --- Mobile --- */
+@media (max-width: 600px) {
+  :root { --gutter: 22px; }
+
+  .nav { padding: 18px var(--gutter); }
+  .nav.scrolled { padding-top: 14px; padding-bottom: 14px; }
+  .brand { font-size: 20px; }
+
+  .hero { padding: 100px var(--gutter) 64px; gap: 28px; }
+  .hero-figure { aspect-ratio: 4 / 3; }
+  .display { font-size: clamp(36px, 10vw, 52px); line-height: 1.02; }
+  .hero .lede { margin-bottom: 28px; font-size: 17px; }
+  .hero-ctas { gap: 10px; }
+  .btn { padding: 14px 24px; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .hero-meta { display: none; }
+
+  section { padding: 64px var(--gutter); }
+  .eyebrow { margin-bottom: 22px; font-size: 13px; }
+  h2.section-title { font-size: clamp(28px, 8vw, 38px); }
+
+  .work { padding: 64px var(--gutter); }
+  .carousel-track { height: 280px; }
+  .case { width: clamp(150px, 42vw, 190px); }
+  .case[data-pos="-2"], .case[data-pos="2"] { opacity: 0; pointer-events: none; }
+  .case[data-pos="-1"] { left: 12%; }
+  .case[data-pos="1"] { left: 88%; }
+  .carousel-wrap::before, .carousel-wrap::after { width: 30px; }
+  .c-arrow { width: 40px; height: 40px; }
+
+  .svc-row { padding: 22px 0; gap: 14px; grid-template-columns: 28px 1fr; }
+  .svc-name { font-size: 22px; }
+  .svc-num { font-size: 14px; padding-top: 6px; }
+  .svc-row:hover { padding-left: 0; }
+
+  .steps { gap: 40px; padding-top: 40px; }
+  .step .roman { font-size: 56px; margin-bottom: 14px; }
+  .step h3 { font-size: 22px; }
+  .step p { font-size: 14.5px; }
+
+  .doc-spotlight { gap: 32px; }
+  .doc-portrait-wrap { width: 180px; height: 180px; }
+  .doc-detail h3 { font-size: 28px; }
+  .doc-specialty { font-size: 15px; margin-bottom: 20px; }
+  .doc-bio { font-size: 15px; margin-bottom: 24px; }
+  .doc-quote { font-size: 16px; padding-left: 16px; }
+  .doc-tabs { flex-direction: column; }
+  .doc-tab { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 18px 20px; }
+  .doc-tab:last-child { border-bottom: none; }
+  .doc-tab::before { top: auto; bottom: 0; }
+
+  .branch-grid { grid-template-columns: 1fr; }
+
+  .contact .wrap { gap: 36px; }
+  .map-embed { aspect-ratio: 16 / 10; }
+  .reach { gap: 10px; }
+  .reach-card { padding: 16px 18px; grid-template-columns: 42px 1fr auto; gap: 12px; }
+  .reach-icon { width: 36px; height: 36px; }
+  .reach-label { font-size: 16px; }
+
+  .quote-stage { margin-top: 40px; }
+  .quote { font-size: 22px; line-height: 1.32; margin-bottom: 28px; }
+  .quote-attr { font-size: 12px; }
+  .quote-attr .who { display: block; margin-bottom: 4px; margin-right: 0; }
+  .quote-nav { margin-top: 36px; gap: 18px; }
+  .q-arrow { width: 42px; height: 42px; }
+
+  footer { padding: 44px var(--gutter) 32px; }
+  .foot { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .foot .brand { font-size: 17px; }
+  .foot-links { gap: 18px; flex-wrap: wrap; }
+  .foot-credit { font-size: 11.5px; }
+}
+
+@media (max-width: 380px) {
+  .display { font-size: 32px; }
+  h2.section-title { font-size: 26px; }
+  .svc-name { font-size: 20px; }
+  .doc-portrait-wrap { width: 150px; height: 150px; }
+  .case { width: 140px; }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  padding: 60px var(--gutter) 40px;
+  background: var(--ivory);
+  border-top: 1px solid var(--hairline);
+}
+.foot {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.foot .brand { font-size: 18px; }
+.foot-links {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  color: var(--muted);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.foot-links a:hover { color: var(--ink); }
+.foot-credit {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   MOBILE POLISH
+   ========================================================================== */
+@media (max-width: 600px) {
+  :root { --gutter: 22px; }
+  .nav { padding: 18px var(--gutter); }
+  .nav.scrolled { padding-top: 14px; padding-bottom: 14px; }
+  .brand { font-size: 20px; }
+  .hero { padding: 100px var(--gutter) 64px; gap: 28px; }
+  .display { font-size: clamp(40px, 12vw, 56px); line-height: 1.02; }
+  .hero .lede { margin-bottom: 28px; font-size: 17px; }
+  .btn { padding: 14px 24px; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .hero-meta { display: none; }
+  section { padding: 72px var(--gutter); }
+  .eyebrow { margin-bottom: 22px; font-size: 13px; }
+  h2.section-title { font-size: clamp(30px, 8vw, 40px); }
+  .svc-row { padding: 22px 0; gap: 14px; grid-template-columns: 28px 1fr; }
+  .svc-name { font-size: 24px; }
+  .svc-num { font-size: 14px; padding-top: 6px; }
+  .svc-row:hover { padding-left: 0; }
+  .steps { gap: 40px; padding-top: 40px; }
+  .step .roman { font-size: 56px; margin-bottom: 14px; }
+  .step h3 { font-size: 22px; }
+  .step p { font-size: 14.5px; }
+  .work { padding: 72px var(--gutter); }
+  .quote-stage { margin-top: 40px; }
+  .quote { font-size: 22px; line-height: 1.32; margin-bottom: 28px; }
+  .quote-attr { font-size: 12px; }
+  .quote-attr .who { display: block; margin-bottom: 4px; margin-right: 0; }
+  .quote-nav { margin-top: 36px; gap: 18px; }
+  .q-arrow { width: 42px; height: 42px; }
+  .contact .wrap { gap: 36px; }
+  .reach { gap: 12px; }
+  footer { padding: 44px var(--gutter) 32px; }
+  .foot { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .foot .brand { font-size: 17px; }
+  .foot-links { gap: 18px; flex-wrap: wrap; }
+  .foot-credit { font-size: 11.5px; }
+  .branches { padding: 72px 0; }
+}
+@media (max-width: 380px) {
+  .display { font-size: 36px; }
+  h2.section-title { font-size: 28px; }
+  .svc-name { font-size: 21px; }
+}
+
+/* ==========================================================================
+   MOTION
+   ========================================================================== */
+.btn, .nav-cta, .nav-toggle, .reach-card, .case, .svc-row,
+.q-arrow, .quote-pips button, .nav-links a, .foot-links a {
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active, .nav-cta:active { transform: scale(0.97); transition: transform 0.12s ease; }
+.q-arrow:active { transform: scale(0.9); transition: transform 0.12s ease; }
+.reach-card:active { transform: scale(0.99); transition: transform 0.12s ease; }
+.svc-row:active { background: rgba(184, 137, 92, 0.05); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  filter: blur(8px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease);
+  will-change: opacity, transform, filter;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+.reveal h1 em,
+.reveal h2 em {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.95s var(--ease) 0.35s, transform 0.95s var(--ease) 0.35s;
+}
+.reveal.in h1 em,
+.reveal.in h2 em {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step .roman {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px) scale(0.92);
+  transition: opacity 1s var(--ease) 0.15s, transform 1s var(--ease) 0.15s;
+}
+.step.reveal.in .roman {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Carousel handled via JS */
+
+.svc-row {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(5px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease), padding 0.5s var(--ease), background 0.4s var(--ease);
+}
+.svc-list.in .svc-row { opacity: 1; transform: translateY(0); filter: blur(0); }
+.svc-list.in .svc-row:nth-child(1) { transition-delay: 0.05s; }
+.svc-list.in .svc-row:nth-child(2) { transition-delay: 0.13s; }
+.svc-list.in .svc-row:nth-child(3) { transition-delay: 0.21s; }
+.svc-list.in .svc-row:nth-child(4) { transition-delay: 0.29s; }
+.svc-list.in .svc-row:nth-child(5) { transition-delay: 0.37s; }
+.svc-list.in .svc-row:nth-child(6) { transition-delay: 0.45s; }
+.svc-list.in .svc-row:nth-child(7) { transition-delay: 0.53s; }
+.svc-list.in .svc-row:nth-child(8) { transition-delay: 0.61s; }
+
+/* Doc spotlight handled via JS + .doc-spotlight.in above */
+
+/* Promise cards stagger */
+.promise-card {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.promise-grid.in .promise-card { opacity: 1; transform: translateY(0); filter: blur(0); }
+.promise-grid.in .promise-card:nth-child(1) { transition-delay: 0.08s; }
+.promise-grid.in .promise-card:nth-child(2) { transition-delay: 0.2s; }
+.promise-grid.in .promise-card:nth-child(3) { transition-delay: 0.32s; }
+
+/* Stats counter animation */
+.stat-block {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.stats-grid.in .stat-block { opacity: 1; transform: translateY(0); }
+.stats-grid.in .stat-block:nth-child(1) { transition-delay: 0.05s; }
+.stats-grid.in .stat-block:nth-child(2) { transition-delay: 0.15s; }
+.stats-grid.in .stat-block:nth-child(3) { transition-delay: 0.25s; }
+.stats-grid.in .stat-block:nth-child(4) { transition-delay: 0.35s; }
+
+/* Branch cards handled by .branch-grid.in above */
+
+/* Hero entrance */
+.hero-text > .eyebrow,
+.hero-text > .lede,
+.hero-text > .hero-ctas {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: enter 1.1s var(--ease) forwards;
+}
+.hero-text .eyebrow { animation-delay: 0.2s; }
+.hero-text .lede { animation-delay: 1.1s; }
+.hero-text .hero-ctas { animation-delay: 1.3s; }
+
+.hero-display { overflow: visible; }
+.hero-display .line { display: block; line-height: 0.98; white-space: nowrap; }
+.hero-display .line-in {
+  display: inline-block;
+  transform: translateY(80px);
+  opacity: 0;
+  filter: blur(14px);
+  animation: lineRise 1.5s var(--ease) forwards;
+  will-change: transform, opacity, filter;
+}
+.hero-display .line:nth-child(1) .line-in { animation-delay: 0.45s; }
+.hero-display .line:nth-child(2) .line-in { animation-delay: 0.7s; }
+@keyframes lineRise {
+  to { transform: translateY(0); opacity: 1; filter: blur(0); }
+}
+
+.hero-figure {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  animation: enter-fig 1.3s var(--ease) 0.55s forwards;
+}
+
+@keyframes enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes enter-fig {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .case, .svc-row, .step .roman,
+  .reveal h1 em, .reveal h2 em,
+  .hero-display .line-in,
+  .stat-block, .promise-card, .branch-card,
+  .carousel-wrap {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="progress" id="progress"></div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <a href="#" class="brand">Kings <em>Dental</em></a>
+  <ul class="nav-links">
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#branches">Branches</a></li>
+    <li><a href="#contact">Visit Us</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book an appointment</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <ul>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#branches">Branches</a></li>
+    <li><a href="#contact">Visit Us</a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <span class="m-eyebrow">Book now</span>
+    <a href="tel:+97477679665" class="m-phone">+974 7767 9665</a>
+    <a href="https://wa.me/97477679665" target="_blank" rel="noopener" class="m-wa">Message on WhatsApp →</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Qatar's Favourite Dental Center</span>
+    <h1 class="display hero-display">
+      <span class="line"><span class="line-in">Smile with</span></span>
+      <span class="line"><span class="line-in"><em>Kings, since 2016.</em></span></span>
+    </h1>
+    <p class="lede">Premium dental care in the heart of Umm Salal Mohammed — affordable, world-class treatments across 12 branches in Qatar, UAE &amp; India.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Book an appointment</a>
+      <a href="#work" class="btn btn-ghost">See our work <span class="arrow">→</span></a>
+    </div>
+  </div>
+  <figure class="hero-figure" id="heroFigure">
+    <img src="images/clinic.png" alt="Kings Dental Center clinic interior" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+  </figure>
+  <div class="hero-meta">
+    <span class="line"></span>
+    Est. 2016 — Umm Salal Mohammed, Qatar
+  </div>
+  <div class="scroll-hint">
+    <span class="dot"></span> Scroll
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<div class="stats-bar">
+  <div class="stats-grid reveal" id="statsGrid">
+    <div class="stat-block">
+      <span class="big" data-count="12">0</span>
+      <span class="label">Branches across<br>Qatar, UAE &amp; India</span>
+    </div>
+    <div class="stat-block">
+      <span class="big" data-count="50" data-suffix="+">0</span>
+      <span class="label">Experienced dental<br>professionals</span>
+    </div>
+    <div class="stat-block">
+      <span class="big" data-count="4.5" data-decimal="true" data-suffix="★">0</span>
+      <span class="label">Google rating from<br>395+ reviews</span>
+    </div>
+    <div class="stat-block">
+      <span class="big" data-count="24" data-suffix="/7">0</span>
+      <span class="label">Emergency dental<br>care availability</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     THE WORK
+     ============================================================ -->
+<section class="work" id="work">
+  <div class="work-head reveal">
+    <span class="eyebrow">Our Work</span>
+    <h2 class="section-title">Every smile tells <em>a story.</em></h2>
+    <p class="lede" style="margin-top: 24px; max-width: 42ch;">From complex restorations to routine care — precision, artistry, and comfort in every treatment.</p>
+  </div>
+
+  <div class="carousel-wrap reveal" id="carouselWrap">
+    <div class="carousel-track" id="carouselTrack">
+      <article class="case" data-pos="-2">
+        <div class="case-img"><img src="images/case-1.png" alt="Full smile makeover" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        <div class="case-body">
+          <span class="case-tag">Cosmetic Dentistry</span>
+          <h4>Full smile makeover</h4>
+        </div>
+      </article>
+      <article class="case" data-pos="-1">
+        <div class="case-img"><img src="images/case-2.png" alt="Implant-supported restoration" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        <div class="case-body">
+          <span class="case-tag">Dental Implants</span>
+          <h4>Implant-supported restoration</h4>
+        </div>
+      </article>
+      <article class="case" data-pos="0">
+        <div class="case-img"><img src="images/case-3.png" alt="Braces and alignment" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        <div class="case-body">
+          <span class="case-tag">Orthodontics</span>
+          <h4>Braces &amp; alignment</h4>
+        </div>
+      </article>
+      <article class="case" data-pos="1">
+        <div class="case-img"><img src="images/case-4.png" alt="Professional teeth whitening" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        <div class="case-body">
+          <span class="case-tag">Zoom Whitening</span>
+          <h4>Professional teeth whitening</h4>
+        </div>
+      </article>
+      <article class="case" data-pos="2">
+        <div class="case-img"><img src="images/case-5.png" alt="Ceramic crown restoration" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        <div class="case-body">
+          <span class="case-tag">Crowns &amp; Bridges</span>
+          <h4>Ceramic crown restoration</h4>
+        </div>
+      </article>
+      <article class="case" data-pos="hidden">
+        <div class="case-img"><img src="images/case-6.png" alt="Gentle care for little ones" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        <div class="case-body">
+          <span class="case-tag">Pediatric Dentistry</span>
+          <h4>Gentle care for little ones</h4>
+        </div>
+      </article>
+    </div>
+    <div class="carousel-nav">
+      <button class="c-arrow" id="cPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="c-dots" id="cDots">
+        <button class="c-dot" aria-label="Slide 1"></button>
+        <button class="c-dot" aria-label="Slide 2"></button>
+        <button class="c-dot active" aria-label="Slide 3"></button>
+        <button class="c-dot" aria-label="Slide 4"></button>
+        <button class="c-dot" aria-label="Slide 5"></button>
+        <button class="c-dot" aria-label="Slide 6"></button>
+      </div>
+      <button class="c-arrow" id="cNext" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Services</span>
+      <h2 class="section-title">Complete dental care, <em>world-class standards.</em></h2>
+      <p class="lede" style="margin-top: 20px;">From preventive check-ups to advanced surgical procedures — affordable, high-quality care for the entire family.</p>
+    </div>
+    <div class="svc-list reveal reveal-delay-1">
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">i</span>
+        <span class="svc-name">General &amp; Preventive Dentistry</span>
+        <span class="svc-desc">Routine check-ups, cleanings, fillings, and fluoride treatments for lasting oral health. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">ii</span>
+        <span class="svc-name">Cosmetic Dentistry</span>
+        <span class="svc-desc">Veneers, bonding, and smile design — crafted to look natural and feel confident. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">iii</span>
+        <span class="svc-name">Orthodontics &amp; Invisible Aligners</span>
+        <span class="svc-desc">Traditional braces and clear aligners for children and adults — discreet, effective correction. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">iv</span>
+        <span class="svc-name">Dental Implants</span>
+        <span class="svc-desc">Permanent, natural-looking replacements anchored for lasting function and aesthetics. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">v</span>
+        <span class="svc-name">Root Canal Treatment</span>
+        <span class="svc-desc">Painless, precise endodontic therapy to save and restore damaged teeth. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">vi</span>
+        <span class="svc-name">Crowns, Bridges &amp; Dentures</span>
+        <span class="svc-desc">Durable prosthetic restorations designed for comfort, function, and a natural appearance. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">vii</span>
+        <span class="svc-name">Zoom Teeth Whitening</span>
+        <span class="svc-desc">Advanced in-office whitening for a brighter, more radiant smile in a single visit. <span class="svc-arrow">→</span></span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="svc-num">viii</span>
+        <span class="svc-name">Pediatric Dentistry</span>
+        <span class="svc-desc">Gentle, child-friendly treatments that make dental visits a positive experience. <span class="svc-arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE US
+     ============================================================ -->
+<section class="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">The Kings Promise</span>
+      <h2 class="section-title">Why families across Qatar <em>choose Kings.</em></h2>
+    </div>
+    <div class="promise-grid reveal reveal-delay-1">
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Trusted Since 2016</h3>
+        <p>From a single clinic to 12 branches across three countries — built on the trust of thousands of families who keep coming back.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Patient-First Philosophy</h3>
+        <p>Every diagnosis is explained clearly. Every treatment option is discussed openly. No unnecessary procedures — just honest, compassionate care.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Advanced Technology</h3>
+        <p>State-of-the-art equipment, digital imaging, and the latest treatment techniques — ensuring precision, comfort, and faster recovery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     THE VISIT
+     ============================================================ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Your Visit</span>
+      <h2 class="section-title">What to expect, <em>every time.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal reveal-delay-1">
+        <span class="roman">I</span>
+        <h3>Consultation</h3>
+        <p>A warm welcome and a thorough examination. Our dentists take the time to understand your concerns, review your dental history, and explain every finding clearly.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <span class="roman">II</span>
+        <h3>Treatment Plan</h3>
+        <p>We present your options openly — with transparent pricing, realistic timelines, and no hidden costs. You choose the path that works best for you.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <span class="roman">III</span>
+        <h3>Care &amp; Follow-Up</h3>
+        <p>Precise, comfortable treatment using the latest techniques, followed by clear aftercare guidance and scheduled follow-ups to ensure lasting results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     TEAM
+     ============================================================ -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Our Team</span>
+      <h2 class="section-title">Experienced hands, <em>genuine care.</em></h2>
+    </div>
+
+    <div class="doc-spotlight reveal" id="docSpotlight">
+      <div class="doc-portrait-wrap">
+        <div class="doc-ring"></div>
+        <div class="doc-ring-2"></div>
+        <div class="doc-portrait" id="docPortrait">
+          <img id="docPhoto" src="images/Dr. Ismail.png" alt="Dr. Ismail" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;border-radius:50%;">
+          <span class="doc-monogram" id="docMonogram" style="display:none;">DI</span>
+        </div>
+      </div>
+
+      <div class="doc-detail">
+        <span class="doc-number" id="docNumber">01</span>
+        <div class="doc-detail-inner" id="docDetailInner">
+          <h3 id="docName">Dr. Ismail</h3>
+          <span class="doc-specialty" id="docSpec">General &amp; Pediatric Dentist</span>
+          <p class="doc-bio" id="docBio">Known for exceptional care with children and adults alike. Dr. Ismail's patient and gentle approach has made him one of the most praised dentists at Kings Dental — trusted by families across Qatar for routine check-ups.</p>
+          <p class="doc-quote" id="docQuote">"Every child deserves a positive experience at the dentist — one that builds the foundation for a lifetime of confident, healthy smiles."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-tabs reveal" id="docTabs">
+      <button class="doc-tab active" data-doc="0">
+        <span class="tab-num">01</span>
+        <span class="tab-name">Dr. Ismail</span>
+        <span class="tab-role">General &amp; Pediatric</span>
+      </button>
+      <button class="doc-tab" data-doc="1">
+        <span class="tab-num">02</span>
+        <span class="tab-name">Dr. Sarah</span>
+        <span class="tab-role">Cosmetic &amp; Restorative</span>
+      </button>
+      <button class="doc-tab" data-doc="2">
+        <span class="tab-num">03</span>
+        <span class="tab-name">Dr. Ahmed</span>
+        <span class="tab-role">Orthodontics &amp; Implants</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRANCHES
+     ============================================================ -->
+<section class="branches" id="branches">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Our Network</span>
+      <h2 class="section-title">12 branches, <em>three countries.</em></h2>
+    </div>
+
+    <div class="branch-grid reveal reveal-delay-1">
+      <div class="branch-card featured">
+        <div>
+          <span class="branch-flag">You are here</span>
+          <h4>Umm Salal Mohammed</h4>
+          <p>750, Umm Salal Muhammed, Qatar<br>+974 7767 9665</p>
+        </div>
+        <span class="branch-active-tag"><span class="pulse-dot"></span> Open now · 7 AM to 11 PM</span>
+      </div>
+      <div class="branch-card">
+        <div>
+          <span class="branch-flag">Qatar</span>
+          <h4>Al Kharaitiyat</h4>
+          <p>212 Umm Slal Mohammed Road, Al Kharaitiyat, Qatar</p>
+        </div>
+      </div>
+      <div class="branch-card">
+        <div>
+          <span class="branch-flag">Qatar</span>
+          <h4>Doha</h4>
+          <p>Main branch, Central Doha, Qatar</p>
+        </div>
+      </div>
+      <div class="branch-card">
+        <div>
+          <span class="branch-flag">UAE</span>
+          <h4>Dubai</h4>
+          <p>Kings Dental Center, Dubai, UAE</p>
+        </div>
+      </div>
+      <div class="branch-card">
+        <div>
+          <span class="branch-flag">India</span>
+          <h4>India</h4>
+          <p>Kings Dental Center, India</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VOICES
+     ============================================================ -->
+<section class="voices" id="voices">
+  <div class="wrap reveal">
+    <span class="eyebrow">Patient Voices</span>
+    <h2 class="section-title">What our patients <em>say.</em></h2>
+    <div class="quote-stage">
+      <p class="quote" id="quote">"I had a wonderful experience at Kings Dental Clinic. The ambiance is warm and inviting. Dr. Ismail's exceptional care for my child was truly impressive — patient and gentle, ensuring my little one felt at ease throughout."</p>
+      <p class="quote-attr"><span class="who" id="who">— Patient, Umm Salal Mohammed</span><span id="role">Rated 4.5 / 5 · 395+ reviews</span></p>
+    </div>
+    <div class="quote-nav" id="quoteNav">
+      <button class="q-arrow" id="qPrev" aria-label="Previous quote">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="quote-pips" id="quotePips" role="tablist">
+        <button aria-current="true" aria-label="Quote 1"><span class="pip"></span></button>
+        <button aria-label="Quote 2"><span class="pip"></span></button>
+        <button aria-label="Quote 3"><span class="pip"></span></button>
+        <button aria-label="Quote 4"><span class="pip"></span></button>
+      </div>
+      <button class="q-arrow" id="qNext" aria-label="Next quote">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Visit Us</span>
+      <h2 class="section-title">We're ready <em>when you are.</em></h2>
+      <dl class="contact-info">
+        <dt>Address</dt>
+        <dd>750, Umm Salal Muhammed, Qatar<br>Al Kharaitiyat Zone 71, Al Shamal Road</dd>
+        <dt>Hours</dt>
+        <dd>Sunday — Thursday · 7:00 AM to 11:00 PM<br>Friday · 2:00 PM to 10:00 PM<br>Saturday · 7:00 AM to 11:00 PM</dd>
+        <dt>Email</dt>
+        <dd>info@kingsdentalcenter.com</dd>
+      </dl>
+    </div>
+
+    <div class="reach reveal reveal-delay-2">
+      <a href="tel:+97477679665" class="reach-card">
+        <span class="reach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        <span class="reach-text">
+          <span class="reach-label">Call Us</span>
+          <span class="reach-meta">+974 7767 9665</span>
+        </span>
+        <span class="reach-arrow">→</span>
+      </a>
+
+      <a href="https://wa.me/97477679665" target="_blank" rel="noopener" class="reach-card">
+        <span class="reach-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+        </span>
+        <span class="reach-text">
+          <span class="reach-label">WhatsApp</span>
+          <span class="reach-meta">Message us anytime</span>
+        </span>
+        <span class="reach-arrow">→</span>
+      </a>
+
+      <a href="tel:+97444277141" class="reach-card">
+        <span class="reach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+        </span>
+        <span class="reach-text">
+          <span class="reach-label">Landline</span>
+          <span class="reach-meta">+974 4427 7141</span>
+        </span>
+        <span class="reach-arrow">→</span>
+      </a>
+
+      <a href="https://maps.google.com/?q=Kings+Dental+Center+Umm+Salal+Mohammed+Qatar" target="_blank" rel="noopener" class="reach-card">
+        <span class="reach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <span class="reach-text">
+          <span class="reach-label">Open in Maps</span>
+          <span class="reach-meta">Umm Salal Mohammed, Qatar</span>
+        </span>
+        <span class="reach-arrow">→</span>
+      </a>
+
+      <a href="mailto:info@kingsdentalcenter.com" class="reach-card">
+        <span class="reach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        <span class="reach-text">
+          <span class="reach-label">Email Us</span>
+          <span class="reach-meta">info@kingsdentalcenter.com</span>
+        </span>
+        <span class="reach-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="foot">
+    <a href="#" class="brand">Kings <em>Dental</em></a>
+    <ul class="foot-links">
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Visit</a></li>
+      <li><a href="#">Privacy</a></li>
+    </ul>
+    <span class="foot-credit">© 2026 Kings Dental Center — All rights reserved · CR NO: 79505/6</span>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   NAV SCROLL
+   ========================================================================== */
+const nav = document.getElementById('nav');
+const progress = document.getElementById('progress');
+const heroFigure = document.getElementById('heroFigure');
+
+function onScroll() {
+  const y = window.scrollY;
+  if (y > 40) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = ((y / h) * 100) + '%';
+
+  if (heroFigure && y < window.innerHeight && window.innerWidth > 820) {
+    heroFigure.style.transform = `translateY(${y * 0.08}px)`;
+  } else if (heroFigure && window.innerWidth <= 820) {
+    heroFigure.style.transform = '';
+  }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ==========================================================================
+   SCROLL REVEAL
+   ========================================================================== */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => io.observe(el));
+
+/* ==========================================================================
+   COUNTER ANIMATION — stats bar numbers count up
+   ========================================================================== */
+function animateCounters() {
+  document.querySelectorAll('.stat-block .big[data-count]').forEach(el => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const isDecimal = el.dataset.decimal === 'true';
+    const duration = 2000;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutExpo
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = eased * target;
+
+      if (isDecimal) {
+        el.textContent = current.toFixed(1) + suffix;
+      } else {
+        el.textContent = Math.round(current) + suffix;
+      }
+
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+// Trigger counters when stats bar enters viewport
+const statsGrid = document.getElementById('statsGrid');
+const statsObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounters();
+      statsObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+statsObs.observe(statsGrid);
+
+/* ==========================================================================
+   TESTIMONIALS
+   ========================================================================== */
+const quotes = [
+  {
+    text: '"I had a wonderful experience at Kings Dental Clinic. The ambiance is warm and inviting. Dr. Ismail\'s exceptional care for my child was truly impressive — patient and gentle, ensuring my little one felt at ease throughout."',
+    who: '— Patient, Umm Salal Mohammed',
+    role: 'Rated 4.5 / 5 · 395+ reviews'
+  },
+  {
+    text: '"Kings Dental surpasses any dental treatment we have had in the UK. Excellent value for money, quick appointments, always first-class service, top-spec facilities and equipment, friendly and kind dentists — 100% the best."',
+    who: '— Patient, Kings Dental',
+    role: 'Long-term patient'
+  },
+  {
+    text: '"My teenage daughter has her braces fitted here. The dentist is fantastic — very friendly, very quick, and talks to the child about each step. My teeth feel great and look better than they have in years."',
+    who: '— Parent, Kings Dental',
+    role: 'Family patient'
+  },
+  {
+    text: '"Professional and highly skilled dentists who completed treatment sensitively and with excellent results. Clear advice and guidance was provided. The staff are all very welcoming and make you feel at ease throughout."',
+    who: '— Patient, Kings Dental',
+    role: '5-star review'
+  }
+];
+
+const quoteEl = document.getElementById('quote');
+const whoEl = document.getElementById('who');
+const roleEl = document.getElementById('role');
+const pipBtns = document.querySelectorAll('#quotePips button');
+const qPrev = document.getElementById('qPrev');
+const qNext = document.getElementById('qNext');
+
+let qIdx = 0;
+let auto;
+
+function showQuote(i) {
+  qIdx = (i + quotes.length) % quotes.length;
+  quoteEl.style.opacity = 0;
+  setTimeout(() => {
+    quoteEl.textContent = quotes[qIdx].text;
+    whoEl.textContent = quotes[qIdx].who;
+    roleEl.textContent = quotes[qIdx].role;
+    quoteEl.style.opacity = 1;
+  }, 280);
+  pipBtns.forEach((b, j) => {
+    b.setAttribute('aria-current', j === qIdx ? 'true' : 'false');
+  });
+}
+
+function startAuto() {
+  clearInterval(auto);
+  auto = setInterval(() => showQuote(qIdx + 1), 5000);
+}
+
+pipBtns.forEach((b, i) => b.addEventListener('click', () => { showQuote(i); startAuto(); }));
+qPrev.addEventListener('click', () => { showQuote(qIdx - 1); startAuto(); });
+qNext.addEventListener('click', () => { showQuote(qIdx + 1); startAuto(); });
+
+startAuto();
+const voices = document.querySelector('.voices');
+voices.addEventListener('mouseenter', () => clearInterval(auto));
+voices.addEventListener('mouseleave', startAuto);
+
+/* ==========================================================================
+   DOCTOR SPOTLIGHT SWITCHER
+   ========================================================================== */
+const doctors = [
+  {
+    name: 'Dr. Ismail',
+    monogram: 'DI',
+    photo: 'images/Dr. Ismail.png',
+    spec: 'General & Pediatric Dentist',
+    bio: 'Known for exceptional care with children and adults alike. Dr. Ismail\'s patient and gentle approach has made him one of the most praised dentists at Kings Dental — trusted by families across Qatar for routine check-ups and pediatric care.',
+    quote: '"Every child deserves a positive experience at the dentist — one that builds the foundation for a lifetime of confident, healthy smiles."'
+  },
+  {
+    name: 'Dr. Sarah',
+    monogram: 'DS',
+    photo: 'images/Dr. Sarah.png',
+    spec: 'Cosmetic & Restorative Dentist',
+    bio: 'A specialist in veneers, smile makeovers, and advanced restorative work. Dr. Sarah combines artistic vision with clinical precision — crafting natural, confident smiles that transform how patients see themselves every single day.',
+    quote: '"A beautiful smile isn\'t just cosmetic — it\'s the confidence to speak, laugh, and connect with the people around you without hesitation."'
+  },
+  {
+    name: 'Dr. Ahmed',
+    monogram: 'DA',
+    photo: 'images/Dr. Ahmed.png',
+    spec: 'Orthodontist & Implantologist',
+    bio: 'Expert in braces, invisible aligners, and dental implant surgery. Dr. Ahmed brings deep technical skill and a reassuring chairside manner — guiding patients through complex treatments with clarity, patience, and genuine care.',
+    quote: '"The best results come from partnership — when the patient trusts the process and the dentist earns that trust through every step of the journey."'
+  }
+];
+
+const docName = document.getElementById('docName');
+const docSpec = document.getElementById('docSpec');
+const docBio = document.getElementById('docBio');
+const docQuote = document.getElementById('docQuote');
+const docMonogram = document.getElementById('docMonogram');
+const docNumber = document.getElementById('docNumber');
+const docDetailInner = document.getElementById('docDetailInner');
+const docTabs = document.querySelectorAll('.doc-tab');
+
+let activeDoc = 0;
+
+function switchDoctor(idx) {
+  if (idx === activeDoc) return;
+  activeDoc = idx;
+
+  // Animate out
+  docDetailInner.classList.add('switching');
+  docMonogram.style.opacity = '0';
+  docMonogram.style.transform = 'scale(0.8)';
+
+  setTimeout(() => {
+    const d = doctors[idx];
+    docName.textContent = d.name;
+    docSpec.innerHTML = d.spec;
+    docBio.textContent = d.bio;
+    docQuote.textContent = d.quote;
+    docMonogram.textContent = d.monogram;
+    docNumber.textContent = String(idx + 1).padStart(2, '0');
+    const docPhoto = document.getElementById('docPhoto');
+    if (docPhoto) { docPhoto.src = d.photo; docPhoto.alt = d.name; }
+
+    // Animate in
+    docDetailInner.classList.remove('switching');
+    docMonogram.style.opacity = '';
+    docMonogram.style.transform = '';
+  }, 400);
+
+  docTabs.forEach((t, i) => t.classList.toggle('active', i === idx));
+}
+
+docTabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => { switchDoctor(i); resetDocAuto(); });
+});
+
+// Auto-rotate doctors every 8 seconds
+let docAutoTimer;
+function startDocAuto() {
+  clearInterval(docAutoTimer);
+  docAutoTimer = setInterval(() => {
+    switchDoctor((activeDoc + 1) % doctors.length);
+  }, 8000);
+}
+function resetDocAuto() { clearInterval(docAutoTimer); startDocAuto(); }
+
+const docSpotlight = document.getElementById('docSpotlight');
+docSpotlight.addEventListener('mouseenter', () => clearInterval(docAutoTimer));
+docSpotlight.addEventListener('mouseleave', startDocAuto);
+startDocAuto();
+
+/* ==========================================================================
+   SPOTLIGHT CAROUSEL — coverflow effect
+   ========================================================================== */
+const cases = document.querySelectorAll('#carouselTrack .case');
+const dots = document.querySelectorAll('#cDots .c-dot');
+const cPrev = document.getElementById('cPrev');
+const cNext = document.getElementById('cNext');
+const totalCases = cases.length;
+let activeIdx = 2; // starts on 3rd card (Orthodontics)
+let carouselAuto;
+
+function positionCards() {
+  cases.forEach((card, i) => {
+    const diff = i - activeIdx;
+    if (diff >= -2 && diff <= 2) {
+      card.setAttribute('data-pos', diff);
+    } else {
+      card.setAttribute('data-pos', 'hidden');
+    }
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+}
+
+function goTo(idx) {
+  activeIdx = ((idx % totalCases) + totalCases) % totalCases;
+  positionCards();
+}
+
+cPrev.addEventListener('click', () => { goTo(activeIdx - 1); resetCarouselAuto(); });
+cNext.addEventListener('click', () => { goTo(activeIdx + 1); resetCarouselAuto(); });
+dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetCarouselAuto(); }));
+
+// Click on side cards to navigate to them
+cases.forEach((card, i) => {
+  card.addEventListener('click', () => {
+    if (i !== activeIdx) { goTo(i); resetCarouselAuto(); }
+  });
+});
+
+// Touch/swipe support
+let touchStartX = 0;
+const track = document.getElementById('carouselTrack');
+track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', (e) => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 40) {
+    goTo(activeIdx + (dx < 0 ? 1 : -1));
+    resetCarouselAuto();
+  }
+}, { passive: true });
+
+function startCarouselAuto() {
+  clearInterval(carouselAuto);
+  carouselAuto = setInterval(() => goTo(activeIdx + 1), 3500);
+}
+function resetCarouselAuto() {
+  clearInterval(carouselAuto);
+  startCarouselAuto();
+}
+
+// Pause on hover
+const carouselWrap = document.getElementById('carouselWrap');
+carouselWrap.addEventListener('mouseenter', () => clearInterval(carouselAuto));
+carouselWrap.addEventListener('mouseleave', startCarouselAuto);
+
+positionCards();
+startCarouselAuto();
+
+/* ==========================================================================
+   MOBILE MENU
+   ========================================================================== */
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+if (navToggle && mobileMenu) {
+  const setMenu = (open) => {
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileMenu.classList.toggle('open', open);
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('menu-open', open);
+  };
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    setMenu(!isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => setMenu(false));
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 820 && mobileMenu.classList.contains('open')) {
+      setMenu(false);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) setMenu(false);
+  });
+}
+</script>
+</body>
+</html>
